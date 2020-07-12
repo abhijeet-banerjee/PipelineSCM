@@ -31,6 +31,23 @@ bat "mvn package"
 }
 }
 
-}
+}                      // stages end here.
+  
+ // post operation performed
+  post
+  {
+    cleanup
+    {
+      dir("${workspace}@tmp")
+      {
+        deleteDir();
+      }
+       dir("${workspace}@script")
+      {
+        deleteDir();
+      }
+    }
+  }
+  
 }
 
